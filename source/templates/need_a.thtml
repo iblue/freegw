@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file=res_bar.thtml}
+      
+      <table width="519">
+        <tr>
+          <td class="c">{$menu}</td>
+        </tr>
+
+        <tr>
+          <th>{$you_need}</th>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+
+      <table border="0" cellspacing="0" cellpadding="0" width="400"
+      height="81">
+
+           <!-- hier res-anzeige + anti-banner -->
+
+      <table align="top">
+        <tr>
+          <td valign="top">
+            <table width="519">
+              <tr>
+                <td class="c" colspan="2">Geb&auml;ude</td>
+              </tr>
+{foreach from=$buildlist item=building}
+     
+  
+              <tr>
+                <td class="l"><a href=
+                "infos.php5?b={$building.id}">{$building.name}</a>
+                (Stufe {$building.level})<br>
+                {$building.desc}<br>
+                Ben&ouml;tigt: {$building.need_res}{* Eisen: <b>18.500</b> Luthrium:
+                <b>7.400</b> *} Dauer: <b>{$building.need_time}</b></td>
+
+                <td class="l"><a href=
+                "konstruktion.php5&B={$building.id}"><font
+                color="{$building.color}">Ausbau auf Stufe {$building.buildlevel}</font></a></td>
+              </tr>
+{/foreach}
+            </table>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

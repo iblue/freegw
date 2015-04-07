@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <table width="519">
+        <tr>
+          <td colspan="2" class="c">Status</td>
+        </tr>
+
+        <tr>
+          <th>Spieler gesamt</th>
+
+          <th>40.434</th>
+        </tr>
+
+        <tr>
+          <th>Serverauslastung</th>
+
+          <th>1</th>
+        </tr>
+
+        <tr>
+          <th>Gespeicherte Nachrichten pro Spieler &Oslash;</th>
+
+          <th>31,044</th>
+        </tr>
+
+        <tr>
+          <th>Kampfberichte gesamt</th>
+
+          <th>214.263</th>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

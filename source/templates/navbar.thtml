@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="{$CONFIG_internal_serverpath}/n/gw.css">
+    <base target="w">
+    {literal}
+    <script language=JavaScript>
+    function wp(l) {
+      eval("parent.location='./login.php5"+l.options[l.selectedIndex].value+"'");
+    }
+    </script>
+    {/literal}
+    <title></title>
+  </head>
+
+  <body>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table border="0" cellspacing="0" width="120" height="60"
+          style="background-image:url({$CONFIG_internal_serverpath}/n/c.gif)">
+            <tr>
+              <td>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td>
+          <table width="80" height="60" style=
+          "background-image:url({$CONFIG_internal_serverpath}/n/f.gif)">
+            <tr>
+              <td>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <table width="120" height="169" style=
+          "background-image:url({$CONFIG_internal_serverpath}/n/a.gif)">
+            <tr>
+              <td class="g" valign="top"><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/uebersicht.php5">&Uuml;bersicht</a><br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/konstruktion.php5">Gebäude</a><br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/produktion.php5">Werft</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/forschung.php5">Forschung</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/verteidigung.php5">Verteidigung</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/planeten.php5">Planeten</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/technik.php5">Technik</a><br>
+             </td>
+            </tr>
+          </table>
+        </td>
+
+        <td valign="top">
+          <table width="40" height="28" style=
+          "background-image:url({$CONFIG_internal_serverpath}/n/g.gif)">
+            <tr>
+              <td>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <table width="120" height="90" style=
+          "background-image:url({$CONFIG_internal_serverpath}/n/d.gif)">
+            <tr>
+            <td class="a"><center>
+            {if $mp == 1}
+            <select onChange="wp(this)">
+             {foreach from=$plist item=p}
+               <option value="?gal={$p.gal}&sys={$p.sys}&plan={$p.plan}"{$p.sel}>
+               {$p.gal}:{$p.sys}:{$p.plan}
+               </option>
+             {/foreach}
+            </select>&nbsp;&nbsp;&nbsp;
+            {else}
+              {$player_coords}&nbsp;&nbsp;&nbsp;
+            {/if}
+            </center></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <table width="120" height="200" style=
+          "background-image:url({$CONFIG_internal_serverpath}/n/e.gif)">
+            <tr>
+              <td class="g" valign="top"><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/nachrichten.php5">Nachrichten</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/rohstoffe.php5">Rohstoffe</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/galaxie.php5?gal={$gal}&amp;sys={$sys}">Galaxie</a><br>
+
+            {*  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/top100.php5">Top 100</a><br> *}
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/flotten.php5">Flotten</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/allianzen.php5">Allianzen</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/suche.php5">Suche</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/einstellungen.php5">Optionen</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/sim.php5">Simulator</a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "http://freegw.cydreams.de/forum" target="_new"><font color="#CCCCFF">Forum</font></a><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+              "{$CONFIG_internal_serverpath}/logout.php5" target=
+              "_top">Logout</a><br>
+               </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+{php}
+if (@include('/var/www/kazzam/adserver/www/phpadsnew.inc.php')) {
+if (!isset($phpAds_context)) $phpAds_context = array();
+$phpAds_raw = view_raw ('zone:4', 0, '_blank', '', '0', $phpAds_context);
+echo $phpAds_raw['html'];
+}
+{/php}
+  </body>
+</html>
+

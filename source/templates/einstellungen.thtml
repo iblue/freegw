@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+{include file="res_bar.thtml"}
+    <br>
+       
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="3">Account</td>
+          </tr>
+
+          <tr>
+            <th><a href="passwortaendern.php5">Passwort
+            &auml;ndern</a></th>
+
+            <th colspan="2"><a href="delacc.php5">Account
+            l&ouml;schen</a></th>
+          </tr>
+
+        </table>
+
+    </center>
+  </body>
+</html>
+

@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+    {include file="res_bar.thtml"}
+       
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="3">Planet '{$planetname}' (Besitzer: {$username})</td>
+        </tr>
+        {if $new_msg == 1}<tr><th colspan="3"> <a href="nachrichten.php5?o=newmsgs">Sie haben neue Nachrichten</a> </th></tr>{/if}
+        <tr>
+          <th colspan="2">Serverzeit</th>
+
+          <th>{$servertime_str}</th>
+        </tr>
+{if $cnt_transferlist > 0}
+        <tr>
+          <td colspan="3" class="c">Ereignisse</td>
+        </tr>
+{/if}
+{foreach from=$transferlist item=trans}
+        <tr>
+          <th>{* <a title="Mon, 9.8.2004 - 12:54:13">*</a> *} - </th>
+
+          <th>
+            {$trans.str_time}
+          </th>
+
+          <th>{$trans.msg}</th>
+        </tr>
+{/foreach}	
+        <tr>
+          <th colspan="3"><img src=
+          "n/wasserplanet02.jpg"><br>
+          <a href="upload.php5">[Upload]</a></th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Durchmesser</th>
+
+          <th>{$diameter} km</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Temperatur</th>
+
+          <th>ca. {$temp_lo}&deg;C bis {$temp_hi}&deg;C</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Position</th>
+
+          <th>{$coords_str}</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Punkte</th>
+
+          <th>{$planet_points}</th>
+        </tr>
+
+       {* <tr>
+          <td class="c" colspan="3">Raumschiffe</td>
+        </tr>
+
+        <tr>
+          <th colspan="2"><a href=
+          "infos.php5?s=3">Spionagesonde</a></th>
+
+          <th>0</th>
+        </tr>
+
+	
+        <tr>
+          <th colspan="2"><a href=
+          "infos.php5?s=10">Cougar</a></th>
+
+          <th>0</th>
+        </tr> *}
+
+        <tr>
+          <td class="c" colspan="3">Account '{$username}'</td>
+        </tr>
+
+        <tr>
+          <th colspan="2">Planeten</th>
+
+          <th>{$planet_count}</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Punkte aller Planeten</th>
+
+          <th>{$build_points}</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Forschungspunkte</th>
+
+          <th>{$sci_points}</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">Punkte Gesamt</th>
+
+          <th>{$all_points}</th>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

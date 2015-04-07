@@ -1,0 +1,664 @@
+# phpMyAdmin SQL Dump
+# version 2.5.7-pl1
+# http://www.phpmyadmin.net
+#
+# Host: localhost
+# Generation Time: Aug 13, 2004 at 07:12 PM
+# Server version: 4.0.20
+# PHP Version: 5.0.0
+# 
+# Database : `freegw`
+# 
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `ally_app`
+#
+
+CREATE TABLE `ally_app` (
+  `allyid` bigint(20) unsigned NOT NULL default '0',
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `txt` text NOT NULL,
+  KEY `allyid` (`allyid`,`userid`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `ally_app`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `ally_members`
+#
+
+CREATE TABLE `ally_members` (
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `allyid` bigint(20) unsigned NOT NULL default '0',
+  `rank` bigint(20) unsigned NOT NULL default '0',
+  KEY `userid` (`userid`,`allyid`,`rank`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `ally_members`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `allys`
+#
+
+CREATE TABLE `allys` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `name` varchar(128) NOT NULL default '',
+  `tag` varchar(32) NOT NULL default '',
+  `desc` text NOT NULL,
+  `url` varchar(255) NOT NULL default '',
+  `score` float unsigned NOT NULL default '0',
+  `memberc` bigint(20) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `allys`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `buildings`
+#
+
+CREATE TABLE `buildings` (
+  `id` int(11) NOT NULL default '0',
+  `res1` float NOT NULL default '0',
+  `res2` float NOT NULL default '0',
+  `res3` float NOT NULL default '0',
+  `res4` float NOT NULL default '0',
+  `pro1` float NOT NULL default '0',
+  `pro2` float NOT NULL default '0',
+  `pro3` float NOT NULL default '0',
+  `pro4` float NOT NULL default '0',
+  `name` varchar(127) NOT NULL default '',
+  `desc` text NOT NULL,
+  `time` int(11) NOT NULL default '0',
+  `need_id` int(11) NOT NULL default '0',
+  `points` bigint(20) NOT NULL default '0'
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `buildings`
+#
+
+INSERT INTO `buildings` VALUES (1, '500', '200', '0', '0', '0', '0', '0', '0', 'Kommandozentrale', 'Koordiniert den Bau von Gebäuden. Ein Ausbau erhöht die Baugeschwindigkeit.', 20000, -1, 2);
+INSERT INTO `buildings` VALUES (2, '300', '100', '0', '0', '0', '0', '0', '0', 'Forschungszentrum', 'Ermöglicht das Erforschen neuer Technologien.', 22000, -1, 1);
+INSERT INTO `buildings` VALUES (3, '250', '20', '0', '0', '4', '0', '0', '0', 'Eisenmine', 'Abbau von Eisen', 4600, -1, 1);
+INSERT INTO `buildings` VALUES (4, '130', '20', '0', '0', '0', '2.5', '0', '0', 'Luthriumraffinerie', 'F&ouml;rdert Luthrium', 4600, -1, 1);
+INSERT INTO `buildings` VALUES (5, '100', '20', '0', '0', '0', '0', '5', '0', 'Bohrturm', 'Fördert Wasser', 4000, -1, 0);
+INSERT INTO `buildings` VALUES (6, '350', '20', '0', '0', '0', '0', '-5', '1', 'Chemiefabrik', 'Wandelt Wasser in Wasserstoff um (Verhältnis 5:1)', 14000, 1, 1);
+INSERT INTO `buildings` VALUES (7, '20000', '15000', '0', '1000', '0', '0', '-25', '12.5', 'Erweiterte Chemiefabrik', 'Wandelt Wasser in Wasserstoff um (Verhältnis 2:1)', 70000, 2, 90);
+INSERT INTO `buildings` VALUES (8, '2000', '2000', '0', '0', '0', '0', '0', '0', 'Eisenspeicher', 'Zum lagern von Eisen', 144000, 3, 10);
+INSERT INTO `buildings` VALUES (9, '2000', '2000', '0', '0', '0', '0', '0', '0', 'Luthriumspeicher', 'Zum lagern von Luthrium', 144000, 4, 10);
+INSERT INTO `buildings` VALUES (10, '2000', '0', '0', '0', '0', '0', '0', '0', 'Wassertanks', 'Zum lagern von Wasser', 144000, 5, 5);
+INSERT INTO `buildings` VALUES (11, '2000', '2000', '0', '0', '0', '0', '0', '0', 'Wasserstoffspeicher', 'Zum lagern von Wasserstoff', 144000, 6, 10);
+INSERT INTO `buildings` VALUES (12, '2000', '4000', '0', '20', '0', '0', '0', '0', 'Schiffsfabrik', '', 74000, -1, 15);
+INSERT INTO `buildings` VALUES (13, '400', '400', '0', '20', '0', '0', '0', '0', 'Orbitale Verteidigungsstation', 'Die Verteidigungsanlage ihres Planeten. Kann mit Verteidigungstürmen bestückt werden', 9000, -1, 2);
+INSERT INTO `buildings` VALUES (14, '10000', '0', '2000', '10000', '0', '0', '0', '0', 'Planetarer Schild', 'Erhöht den Verteidigungswert Ihrer Verteidigungstürme', 22000, 7, 55);
+INSERT INTO `buildings` VALUES (15, '10000', '0', '2000', '10000', '0', '0', '0', '0', 'Fusionsreaktor', 'Energieversorgung für planetares Schild', 220000, 8, 55);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `fleets`
+#
+
+CREATE TABLE `fleets` (
+  `fleetid` bigint(20) unsigned NOT NULL default '0',
+  `shiptype` bigint(20) unsigned NOT NULL default '0',
+  `count` bigint(20) unsigned NOT NULL default '0',
+  KEY `fleetid` (`fleetid`,`shiptype`,`count`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `fleets`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `fleets_tr`
+#
+
+CREATE TABLE `fleets_tr` (
+  `fleetid` bigint(20) unsigned NOT NULL default '0',
+  `shiptype` bigint(20) unsigned NOT NULL default '0',
+  `count` bigint(20) unsigned NOT NULL default '0'
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `fleets_tr`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `msgs`
+#
+
+CREATE TABLE `msgs` (
+  `msgid` bigint(20) unsigned NOT NULL auto_increment,
+  `fromuid` bigint(20) unsigned NOT NULL default '0',
+  `touid` bigint(20) unsigned NOT NULL default '0',
+  `fromgal` tinyint(3) unsigned NOT NULL default '0',
+  `fromsys` mediumint(8) unsigned NOT NULL default '0',
+  `fromplan` tinyint(3) unsigned NOT NULL default '0',
+  `togal` tinyint(3) unsigned NOT NULL default '0',
+  `tosys` mediumint(8) unsigned NOT NULL default '0',
+  `toplan` tinyint(3) unsigned NOT NULL default '0',
+  `red` tinyint(4) NOT NULL default '0',
+  `type` tinyint(4) NOT NULL default '0',
+  `date` bigint(20) unsigned NOT NULL default '0',
+  `subject` varchar(127) NOT NULL default '',
+  `text` mediumtext NOT NULL,
+  PRIMARY KEY  (`msgid`),
+  KEY `fromuid` (`fromuid`,`touid`,`fromgal`,`fromsys`,`fromplan`,`togal`,`tosys`,`toplan`,`red`,`type`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `msgs`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `needs`
+#
+
+CREATE TABLE `needs` (
+  `id` bigint(20) unsigned NOT NULL default '0',
+  `building` bigint(20) unsigned NOT NULL default '0',
+  `level` bigint(20) unsigned NOT NULL default '0',
+  KEY `id` (`id`,`building`,`level`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `needs`
+#
+
+INSERT INTO `needs` VALUES (1, 5, 1);
+INSERT INTO `needs` VALUES (2, 1, 6);
+INSERT INTO `needs` VALUES (2, 5, 10);
+INSERT INTO `needs` VALUES (3, 3, 5);
+INSERT INTO `needs` VALUES (4, 4, 5);
+INSERT INTO `needs` VALUES (5, 5, 5);
+INSERT INTO `needs` VALUES (6, 6, 5);
+INSERT INTO `needs` VALUES (7, 12, 1);
+INSERT INTO `needs` VALUES (7, 13, 1);
+INSERT INTO `needs` VALUES (7, 15, 1);
+INSERT INTO `needs` VALUES (8, 6, 5);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `planet_buildings`
+#
+
+CREATE TABLE `planet_buildings` (
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `buildid` bigint(20) unsigned NOT NULL default '0',
+  `level` bigint(20) unsigned NOT NULL default '0',
+  KEY `gal` (`gal`,`sys`,`plan`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `planet_buildings`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `planet_orbit`
+#
+
+CREATE TABLE `planet_orbit` (
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `fleetid` bigint(20) unsigned NOT NULL default '0',
+  `fe` bigint(20) unsigned NOT NULL default '0',
+  `lut` bigint(20) unsigned NOT NULL default '0',
+  `h2o` bigint(20) unsigned NOT NULL default '0',
+  `h2` bigint(20) unsigned NOT NULL default '0',
+  KEY `gal` (`gal`,`sys`,`plan`,`fleetid`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `planet_orbit`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `planets`
+#
+
+CREATE TABLE `planets` (
+  `gal` mediumint(8) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `pname` varchar(255) NOT NULL default '',
+  `score_build` bigint(20) NOT NULL default '0',
+  KEY `galaxy` (`gal`,`sys`,`plan`,`userid`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `planets`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `planets_info`
+#
+
+CREATE TABLE `planets_info` (
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `diameter` int(10) unsigned NOT NULL default '0',
+  `temp_lo` smallint(6) NOT NULL default '0',
+  `temp_hi` smallint(6) NOT NULL default '0',
+  `points` bigint(20) unsigned NOT NULL default '0',
+  KEY `gal` (`gal`,`sys`,`plan`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `planets_info`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `planets_res`
+#
+
+CREATE TABLE `planets_res` (
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `fe` double unsigned NOT NULL default '0',
+  `lut` double unsigned NOT NULL default '0',
+  `h2` double unsigned NOT NULL default '0',
+  `h2o` double unsigned NOT NULL default '0',
+  `lastupdate` bigint(20) unsigned NOT NULL default '0',
+  KEY `gal` (`gal`,`sys`,`plan`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `planets_res`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `reports`
+#
+
+CREATE TABLE `reports` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `time` bigint(20) unsigned NOT NULL default '0',
+  `tcoords` varchar(127) NOT NULL default '',
+  `fcoords` varchar(127) NOT NULL default '',
+  `ships_a` text NOT NULL,
+  `ships_v` text NOT NULL,
+  `towers_v` text NOT NULL,
+  `spy` tinyint(1) unsigned NOT NULL default '0',
+  `buildings` text NOT NULL,
+  `sci` text NOT NULL,
+  `to_info` text NOT NULL,
+  `res_raided` text NOT NULL,
+  `res_recycled` text NOT NULL,
+  `res_spy` text NOT NULL,
+  `fleetid` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `reports`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `sci_needs`
+#
+
+CREATE TABLE `sci_needs` (
+  `id` bigint(20) unsigned NOT NULL default '0',
+  `sciid` bigint(20) unsigned NOT NULL default '0',
+  `level` bigint(20) unsigned NOT NULL default '0',
+  KEY `id` (`id`,`sciid`,`level`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `sci_needs`
+#
+
+INSERT INTO `sci_needs` VALUES (1, 1, 2);
+INSERT INTO `sci_needs` VALUES (2, 1, 5);
+INSERT INTO `sci_needs` VALUES (2, 2, 5);
+INSERT INTO `sci_needs` VALUES (3, 4, 1);
+INSERT INTO `sci_needs` VALUES (4, 4, 2);
+INSERT INTO `sci_needs` VALUES (4, 5, 1);
+INSERT INTO `sci_needs` VALUES (5, 1, 2);
+INSERT INTO `sci_needs` VALUES (101, 1, 1);
+INSERT INTO `sci_needs` VALUES (102, 1, 2);
+INSERT INTO `sci_needs` VALUES (104, 1, 2);
+INSERT INTO `sci_needs` VALUES (105, 2, 1);
+INSERT INTO `sci_needs` VALUES (106, 2, 2);
+INSERT INTO `sci_needs` VALUES (106, 7, 5);
+INSERT INTO `sci_needs` VALUES (107, 2, 4);
+INSERT INTO `sci_needs` VALUES (108, 2, 10);
+INSERT INTO `sci_needs` VALUES (108, 7, 10);
+INSERT INTO `sci_needs` VALUES (109, 3, 1);
+INSERT INTO `sci_needs` VALUES (110, 3, 1);
+INSERT INTO `sci_needs` VALUES (110, 8, 1);
+INSERT INTO `sci_needs` VALUES (111, 3, 4);
+INSERT INTO `sci_needs` VALUES (112, 1, 1);
+INSERT INTO `sci_needs` VALUES (113, 3, 5);
+INSERT INTO `sci_needs` VALUES (151, 4, 4);
+INSERT INTO `sci_needs` VALUES (152, 6, 10);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `science`
+#
+
+CREATE TABLE `science` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `res1` float NOT NULL default '0',
+  `res2` float NOT NULL default '0',
+  `res3` float NOT NULL default '0',
+  `res4` float NOT NULL default '0',
+  `name` varchar(127) NOT NULL default '',
+  `desc` text NOT NULL,
+  `time` bigint(20) unsigned NOT NULL default '0',
+  `need_id` bigint(20) NOT NULL default '0',
+  `points` bigint(20) NOT NULL default '0',
+  KEY `id` (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=10 ;
+
+#
+# Dumping data for table `science`
+#
+
+INSERT INTO `science` VALUES (1, '1000', '0', '0', '0', 'Verbrennungsantrieb', 'Antriebstechnik für kleine Raumschiffe', 5000, -1, 2);
+INSERT INTO `science` VALUES (2, '4000', '4000', '0', '2000', 'Ionenantrieb', 'Sehr schnelle Antriebstechnik', 20000, 1, 25);
+INSERT INTO `science` VALUES (3, '0', '0', '0', '30000', 'Raumkrümmungsantrieb', 'Sparsamer und schneller Antrieb, für große Raumschiffe', 5000, 2, 75);
+INSERT INTO `science` VALUES (4, '9500', '5750', '0', '450', 'Ionisation', 'Ionenwaffen erforschen', 52000, -1, 40);
+INSERT INTO `science` VALUES (5, '17000', '13250', '0', '1240', 'Energiebündelung', 'Erhöht die Effizienz von Ionenwaffen', 52000, 3, 79);
+INSERT INTO `science` VALUES (6, '4000', '0', '0', '0', 'Explosivgeschosse', 'Explosionsgeschosse richten enormen Schaden an', 5000, 4, 10);
+INSERT INTO `science` VALUES (7, '400', '100', '0', '0', 'Spionagetechnik', 'Verbessert die Funktion von Spionagesonden', 52000, -1, 1);
+INSERT INTO `science` VALUES (8, '4000', '4000', '4000', '4000', 'Erweiterte Schiffspanzerung', 'Erhöht die Panzerung aller Raumschiffe', 150000, -1, 40);
+INSERT INTO `science` VALUES (9, '0', '10000', '0', '2000', 'Erhöhte Ladekapazität', 'Erhöht die Ladekapazität aller Raumschiffe', 5000, -1, 25);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `ship_build`
+#
+
+CREATE TABLE `ship_build` (
+  `buildid` bigint(20) unsigned NOT NULL auto_increment,
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `count` bigint(20) unsigned NOT NULL default '0',
+  `order` bigint(20) unsigned NOT NULL default '0',
+  `resttime` bigint(20) unsigned NOT NULL default '0',
+  `lastact` bigint(20) unsigned NOT NULL default '0',
+  `shiptype` bigint(20) unsigned NOT NULL default '0',
+  KEY `buildid` (`buildid`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `ship_build`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `ships`
+#
+
+CREATE TABLE `ships` (
+  `id` bigint(20) unsigned NOT NULL default '0',
+  `res1` bigint(20) NOT NULL default '0',
+  `res2` bigint(20) NOT NULL default '0',
+  `res3` bigint(20) NOT NULL default '0',
+  `res4` bigint(20) NOT NULL default '0',
+  `ag` float unsigned NOT NULL default '0',
+  `vt` float unsigned NOT NULL default '0',
+  `name` varchar(127) NOT NULL default '',
+  `desc` text NOT NULL,
+  `speed` float unsigned NOT NULL default '0',
+  `consum` float unsigned NOT NULL default '0',
+  `load` bigint(20) unsigned NOT NULL default '0',
+  `time` bigint(20) NOT NULL default '0',
+  `sci_need` bigint(20) NOT NULL default '0',
+  KEY `id` (`id`,`sci_need`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `ships`
+#
+
+INSERT INTO `ships` VALUES (2, 1000, 0, 0, 0, '200', '1000', 'Testschiff2', 'Dies ist iBlue\'s Testschiff Nr2, es wird im Spiel nicht vorkommen (vielleicht als Artefakt)...', '3400', '5', 0, 45, -1);
+INSERT INTO `ships` VALUES (1, 500, 500, 0, 0, '200', '1000', 'Testschiff', 'Dies ist iBlue\'s Testschiff, es wird im Spiel nicht vorkommen (vielleicht als Artefakt)...', '3400', '5', 2000, 15, -1);
+INSERT INTO `ships` VALUES (4, 250, 0, 0, 75, '50', '100', 'Schakal', 'Blah Blah', '1200', '14', 290, 3400, -1);
+INSERT INTO `ships` VALUES (3, 40, 20, 0, 0, '200', '100', 'blaue Super-Test-Sonde', 'Die blaue Testsonde, schnell, stark und mutig ;)', '2.7e+08', '1', 300, 30, -1);
+INSERT INTO `ships` VALUES (23, 20, 0, 0, 0, '0', '0', 'Verbrennungs1', 'foobarbaz', '5000', '20', 3600, 1200, 5);
+INSERT INTO `ships` VALUES (101, 250, 0, 0, 75, '50', '100', 'Kojote', 'Schwaches Schiff aber billiges Schiff, ausgestattet mit einem leichten 1277nm-Infrarot-Laser.', '800', '10', 250, 2400, 101);
+INSERT INTO `ships` VALUES (102, 850, 850, 100, 0, '300', '100', 'Sammler', 'Sammelt die um den Planeten kreisenden Truemmer zerstoerter Schiffe auf.', '1000', '30', 10000, 12400, 102);
+INSERT INTO `ships` VALUES (103, 0, 150, 0, 0, '1', '1', 'Sonde', 'Schnelle Erkundungssonde um sich Informationen ueber einen Planeten zu beschaffen.', '9e+06', '1', 15, 100, -1);
+INSERT INTO `ships` VALUES (104, 1000, 0, 0, 0, '200', '200', 'Revenger', 'Ein dem Kojoten sehr aehnliches Schiff, mit 2 statt einem Laser und verbesserter Panzerung.', '1300', '25', 200, 6000, 104);
+INSERT INTO `ships` VALUES (105, 500, 500, 0, 0, '150', '300', 'Predator', 'Bestueckt mit 6 starken Infrarot-Lasern und einer Luthriumhydrid-Panzerung.', '2000', '40', 900, 10000, 105);
+INSERT INTO `ships` VALUES (106, 0, 2000, 0, 0, '1300', '150', 'Stealthbomber', 'Der Stealthbomber bleibt bis kurz vor dem Kampf unentdeckt.', '1000', '100', 4000, 72000, 106);
+INSERT INTO `ships` VALUES (107, 10000, 15000, 1000, 10000, '1', '1000', 'Kolonisationseinheit', 'Errichtet eine Kommandozentrale auf anderen Planeten.', '9e+07', '800', 1000000, 1440000, 107);
+INSERT INTO `ships` VALUES (108, 200000, 150000, 20000, 55000, '10', '1000', 'Invasionseinheit', 'Nimmt fremde bewohnte Planeten in Besitz.', '500', '1000', 1000000, 2830000, 108);
+INSERT INTO `ships` VALUES (109, 2000, 2000, 0, 0, '2000', '800', 'Tiger', 'Sehr schnelles Schiff. Ausgestattet mit 12 Wasserstoff-Plasmwerfern.', '3500', '60', 2000, 52000, 109);
+INSERT INTO `ships` VALUES (110, 4000, 5000, 0, 0, '2250', '6500', 'Puma', 'Gepanzertes Raumschiff mit 2 Neutronenbschleuniger die Metalle verdampfen lassen.', '2100', '90', 24000, 52000, 110);
+INSERT INTO `ships` VALUES (111, 50000, 5000, 0, 0, '15000', '35000', 'Shortbird IV', 'Gepanzertes Raumschiff mit monströser Bewaffnung.', '2700', '200', 34000, 480000, 111);
+INSERT INTO `ships` VALUES (112, 2000, 2000, 0, 0, '1', '500', 'Kleiner Transporter', 'unbewaffnetes Transportschiff.', '1900', '10', 9000, 25000, 112);
+INSERT INTO `ships` VALUES (113, 8000, 2000, 0, 5000, '15', '12000', 'Grosser Transporter', 'Transportschiff mit 12facher Luthriumhydrid-Panzerung', '4500', '30', 50000, 45000, 113);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `tasks`
+#
+
+CREATE TABLE `tasks` (
+  `taskid` bigint(20) NOT NULL auto_increment,
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `typ` bigint(20) unsigned NOT NULL default '0',
+  `objectid` bigint(20) unsigned NOT NULL default '0',
+  `objectlevel` bigint(20) unsigned NOT NULL default '0',
+  `endtime` bigint(20) unsigned NOT NULL default '0',
+  `order` bigint(20) unsigned NOT NULL default '0',
+  KEY `taskid` (`taskid`,`userid`,`gal`,`sys`,`plan`)
+) TYPE=MyISAM AUTO_INCREMENT=9 ;
+
+#
+# Dumping data for table `tasks`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `tower_build`
+#
+
+CREATE TABLE `tower_build` (
+  `buildid` bigint(20) unsigned NOT NULL auto_increment,
+  `gal` tinyint(3) unsigned NOT NULL default '0',
+  `sys` mediumint(8) unsigned NOT NULL default '0',
+  `plan` tinyint(3) unsigned NOT NULL default '0',
+  `count` bigint(20) unsigned NOT NULL default '0',
+  `order` bigint(20) unsigned NOT NULL default '0',
+  `resttime` bigint(20) unsigned NOT NULL default '0',
+  `lastact` bigint(20) unsigned NOT NULL default '0',
+  `shiptype` bigint(20) unsigned NOT NULL default '0',
+  KEY `buildid` (`buildid`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `tower_build`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `towers`
+#
+
+CREATE TABLE `towers` (
+  `id` bigint(20) unsigned NOT NULL default '0',
+  `res1` bigint(20) NOT NULL default '0',
+  `res2` bigint(20) NOT NULL default '0',
+  `res3` bigint(20) NOT NULL default '0',
+  `res4` bigint(20) NOT NULL default '0',
+  `ag` float unsigned NOT NULL default '0',
+  `vt` float unsigned NOT NULL default '0',
+  `name` varchar(127) NOT NULL default '',
+  `desc` text NOT NULL,
+  `time` bigint(20) NOT NULL default '0',
+  `sci_need` bigint(20) NOT NULL default '0',
+  KEY `id` (`id`,`sci_need`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `towers`
+#
+
+INSERT INTO `towers` VALUES (101, 600, 0, 0, 0, '150', '350', 'Laserstation', 'Ein leichtgepanzerter Orbitallaser.', 1000, -1);
+INSERT INTO `towers` VALUES (102, 2000, 200, 0, 0, '700', '1000', 'Gepulste Laserstation', 'Durch kurze aber heftige Laserimpulse erreicht dieser Abwehrturm eine hoehere Leistung.', 8000, 101);
+INSERT INTO `towers` VALUES (103, 200, 5000, 0, 0, '1000', '1800', 'EMP-Pulser', 'Durch Z&uuml;ndung eines Luthriumplasmas entsteht ein elektromagnetischer Impuls, der die Steuerungselektronik der feindlichen Schiffe st&ouml;rt', 19000, -1);
+INSERT INTO `towers` VALUES (104, 2000, 2000, 50, 0, '1400', '700', 'Ionenwerfer', 'Beschiesst generische Schiff mit Eisenionen, effektiv und schnell baubar.', 850, 151);
+INSERT INTO `towers` VALUES (105, 15000, 2000, 2000, 0, '8100', '4500', 'Raketensilo', 'Statt mit einergiereicher Strahlung beschiesst diese Abwehreinrichtung die feindlichen Schiffe mit Raketen', 1000, 152);
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `transfer`
+#
+
+CREATE TABLE `transfer` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `fleetid` bigint(20) unsigned NOT NULL default '0',
+  `fromgal` mediumint(8) unsigned NOT NULL default '0',
+  `fromsys` mediumint(8) unsigned NOT NULL default '0',
+  `fromplan` mediumint(8) unsigned NOT NULL default '0',
+  `togal` mediumint(8) unsigned NOT NULL default '0',
+  `tosys` mediumint(8) unsigned NOT NULL default '0',
+  `toplan` mediumint(8) unsigned NOT NULL default '0',
+  `option` bigint(20) unsigned NOT NULL default '0',
+  `tstart` bigint(20) unsigned NOT NULL default '0',
+  `tthere` bigint(20) unsigned NOT NULL default '0',
+  `tback` bigint(20) unsigned NOT NULL default '0',
+  `loadres4` bigint(20) unsigned NOT NULL default '0',
+  `loadres3` bigint(20) unsigned NOT NULL default '0',
+  `loadres2` bigint(20) unsigned NOT NULL default '0',
+  `loadres1` bigint(20) unsigned NOT NULL default '0',
+  `processed` tinyint(1) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `fleetid` (`fleetid`,`fromgal`,`fromsys`,`fromplan`,`togal`,`tosys`,`toplan`,`option`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `transfer`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `user_info`
+#
+
+CREATE TABLE `user_info` (
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `email` varchar(255) NOT NULL default '',
+  `planetid` bigint(20) unsigned NOT NULL default '0',
+  `active` tinyint(3) unsigned NOT NULL default '0',
+  UNIQUE KEY `email` (`email`),
+  KEY `userid` (`userid`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `user_info`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `user_sci`
+#
+
+CREATE TABLE `user_sci` (
+  `userid` bigint(20) unsigned NOT NULL default '0',
+  `sciid` bigint(20) unsigned NOT NULL default '0',
+  `level` bigint(20) unsigned NOT NULL default '0',
+  KEY `userid` (`userid`,`sciid`,`level`)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `user_sci`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `users`
+#
+
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `user` varchar(255) NOT NULL default '',
+  `pass` varchar(255) NOT NULL default '',
+  `score_sci` bigint(20) unsigned NOT NULL default '0',
+  UNIQUE KEY `user` (`user`),
+  KEY `id` (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `users`
+#
+
+    

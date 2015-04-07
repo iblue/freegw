@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+      <br>
+       <a href="allianzen.php5?id={$ally.id}">Zur&uuml;ck</a><br>
+      <br>
+
+      <form action="bewerben.php5" method="POST">
+        <input type="hidden" name="id" value="{$ally.id}">
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Bewerbung an "{$ally.name}" schreiben</td>
+          </tr>
+
+          <tr>
+            <th>Nachricht<br>
+            (max. 6.000 Zeichen)</th>
+
+            <th><textarea name="text" cols="40" rows="10">
+            </textarea></th>
+          </tr>
+
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Absenden"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

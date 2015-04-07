@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+  {include file=res_bar.thtml}
+    <br>
+       
+
+      <form action="nachrichten.php5" method="POST">
+        <input type="hidden" name="send" value="1">
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Nachricht schreiben</td>
+          </tr>
+
+          <tr>
+            <th>Empf&auml;nger</th>
+
+            <th><input type="text" name="to" size="40" value=
+            "{if $to != "none" && $to != ""}{$to.gal}:{$to.sys}:{$to.plan}{/if}"></th>
+          </tr>
+
+          <tr>
+            <th>Betreff</th>
+
+            <th><input type="text" name="subject" size="40"
+            maxlength="40"></th>
+          </tr>
+
+          <tr>
+            <th>Nachricht<br>
+            (max. 16.000 Zeichen)</th>
+
+            <th><textarea name="text" cols="40" rows="10"></textarea></th>
+          </tr>
+
+          <tr>
+            <th>Im Postausgang speichern</th>
+
+            <th><b>Immer</b></th>
+          </tr>
+
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Absenden"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

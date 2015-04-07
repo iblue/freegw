@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>{$CONF_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+      <br>
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Allianz verwalten:</td>
+        </tr>
+{*
+        <tr>
+          <th colspan="2"><a href=
+          "verwalten.php?u=ayJeci7pXn&amp;a=r">Rechte
+          einstellen</a></th>
+        </tr>
+*}
+{*      <tr>
+          <th colspan="2"><a href=
+          "verwalten.php?u=ayJeci7pXn&amp;a=m">Mitglieder
+          verwalten</a></th>
+*}      </tr>
+{*
+        <tr>
+          <th colspan="2"><a href=
+          "upload.php?u=ayJeci7pXn">Allianz-Logo</a></th>
+        </tr>
+*}
+{*      <tr>
+          <th colspan="2"><a href="verwalten.php5?a=t"><img src="a.gif"
+          border="0" alt="Allianz-Tag &auml;ndern (1x pro Woche m&ouml;glich)">
+          </a>&nbsp;<a href="verwalten.php5?a=n"><img src="a.gif"
+          border="0" alt="Allianz-Name &auml;ndern (1x pro Woche m&ouml;glich)">
+          </a>&nbsp;<a href="verwalten.php5??a=g"><img src="a.gif"
+          border="0" alt="Zur geheimen Allianz umwandeln (1x pro Tag m&ouml;glich)">
+          </a></th>
+        </tr>
+*}
+      </table>
+      <br>
+
+      <form action="allianzen.php5" method="POST">
+        <input type="hidden" name="a" value="e1">
+        <input type="hidden" name="aid" value="{$ally.id}">
+        <table width="519">
+          <tr>
+            <td class="c">Text (max. 5000 Zeichen)</td>
+          </tr>
+
+          <tr>
+            <th>
+<textarea name="desc" cols="70" rows="15">{$ally.desc}</textarea></th>
+          </tr>
+
+          <tr>
+            <th><input type="submit" value="Speichern"></th>
+          </tr>
+        </table>
+      </form>
+      <br>
+
+      <form action="allianzen.php5" method="POST">
+      <input type="hidden" name="a" value="e2">
+      <input type="hidden" name="aid" value="{$ally.id}">
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Einstellungen</td>
+          </tr>
+
+          <tr>
+            <th>Homepage</th>
+
+            <th><input type="text" name="url" value="{if $ally.url == ""}http://{else}{$ally.url}{/if}"></th>
+          </tr>
+
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Speichern"></th>
+          </tr>
+        </table>
+      </form>
+
+      <form action="allianzen.php5" method="POST">
+      <input type="hidden" name="a" value="l">
+
+        <table width="519">
+          <tr>
+            <td class="c">Diese Allianz aufl&ouml;sen</td>
+          </tr>
+
+          <tr>
+            <th><input type="submit" value="weiter"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

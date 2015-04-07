@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+{include file="res_bar.thtml"}
+      <br>
+       
+
+      <form action="flotten.php5" method="post" name="aa">
+      <input type="hidden" name="x" value="3">
+{foreach from=$ships item=ship}        
+       <input type="hidden" name="c{$ship.id}"  value="{$ship.count}">
+{/foreach}
+        <input type="hidden" name="ft1" value="{$to.gal}">
+        <input type="hidden" name="ft2" value="{$to.sys}">
+        <input type="hidden" name="ft3" value="{$to.plan}">
+        <input type="hidden" name="s" value="8">
+
+        <table width="519">
+          <tr>
+	  
+            <td colspan="2" class="c">{if $to.pname != -1}{$to.gal}:{$to.sys}:{$to.plan} - Dieser Planet ist
+            besiedelt von <a href="p.php?;o={$to.gal}x{$to.sys}x{$to.plan}">{$to.name}</a>
+            ({$to.pname}){else}Dieser Planet ist unbewohnt{/if}</td>
+          </tr>
+{if $to.pname == -1}
+          <tr>
+	    <th colspan="2"><font color="#FF0000">Warnung: Dieser Planet ist unbewohnt</font></th>
+	  </tr>
+{/if}
+          <tr>
+            <th></th>
+
+            <th>Einstellungen</th>
+          </tr>
+
+          <tr>
+            <th><input type="radio" name="opt" value="a">Planet
+            angreifen</th>
+
+            <th><input type="checkbox" name="pl" value="y">Pl&uuml;ndern<br>
+            Reihenfolge:<br>
+            1. <input type="radio" name="r1" value="1"> Eisen
+            <input type="radio" name="r1" value="2"> Luthrium <input
+            type="radio" name="r1" value="3"> Wasser <input type=
+            "radio" name="r1" value="4"> Wasserstoff<br>
+            2. <input type="radio" name="r2" value="1"> Eisen
+            <input type="radio" name="r2" value="2"> Luthrium <input
+            type="radio" name="r2" value="3"> Wasser <input type=
+            "radio" name="r2" value="4"> Wasserstoff<br>
+            3. <input type="radio" name="r3" value="1"> Eisen
+            <input type="radio" name="r3" value="2"> Luthrium <input
+            type="radio" name="r3" value="3"> Wasser <input type=
+            "radio" name="r3" value="4"> Wasserstoff<br>
+            Hinweis: Spionagesonden m&uuml;ssen einen Planeten
+            angreifen um einen Bericht zu erstellen</th>
+          </tr>
+
+          <tr>
+            <th><input type="radio" name="opt" value="t">Rohstoffe
+            transportieren</th>
+
+            <th align="left"><input type="text" name="t1" value="" size="6"
+            maxlength="12"> Einheiten Eisen<br>
+            <input type="text" name="t2" value="" size="6"
+            maxlength="12"> Einheiten Lutinum<br>
+            <input type="text" name="t3" value="" size="6"
+            maxlength="12"> Einheiten Wasser<br>
+            <input type="text" name="t4" value="" size="6"
+            maxlength="12"> Einheiten Wasserstoff<br>
+            </th>
+          </tr>
+          {if $kolo == 1 && $to.pname == -1}
+          <tr>
+            <th>
+            <input type="radio" name="opt" value="k">Planet kolonisieren</th>
+            <th><font color="red">Achtung: Die Flotte geht beim Kolonisieren verloren!</font></th>
+          </tr>
+          {/if}          
+        </table>
+
+        <table>
+          <tr>
+            <th colspan="2">{* <input type="submit" value=
+            "Zur&uuml;ck"> *}<input type="submit" value="Weiter" name=
+            "fwd"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

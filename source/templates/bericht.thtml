@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Bericht</td>
+        </tr>
+
+        <tr>
+          <th>Datum/Zeit</th>
+
+          <th>{$str_date}</th>
+        </tr>
+
+        <tr>
+          <th>Planet</th>
+
+          <th>{$to.gal}:{$to.sys}:{$to.plan}</th>
+        </tr>
+      </table>
+      <br>
+      <br>
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="3">Schiffe des Angreifers
+          ({$from.gal}:{$from.sys}:{$from.plan})</td>
+        </tr>
+
+        <tr>
+          <th>
+          </th>
+
+          <th>Gesamt</th>
+
+          <th>Verluste</th>
+        </tr>
+{foreach from=$ships_a item=ship}
+        <tr>
+          <th>{$ship.name}</th>
+
+          <th>{$ship.gesamt}</th>
+
+          <th>{$ship.lost}</th>
+        </tr>
+{/foreach}
+      </table>
+      <br>
+      <br>
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="3">Schiffe/T&uuml;rme des
+          Verteidigers ({$to.gal}:{$to.sys}:{$to.plan})</td>
+        </tr>
+
+    
+{if $st == 1}
+<tr><th colspan="3">Keine Schiffe/Turme</th></tr>
+{else}
+      <tr>
+          <th>
+          </th>
+
+          <th>Gesamt</th>
+
+          <th>Verluste</th>
+        </tr>
+  {foreach from=$ships_v item=ship}
+
+        <tr>
+          <th>{$ship.name}</th>
+
+          <th>{$ship.gesamt}</th>
+
+          <th>{$ship.lost}</th>
+        </tr>
+  {/foreach}
+  {foreach from=$towers_v item=ship}
+
+        <tr>
+          <th>{$ship.name}</th>
+
+          <th>{$ship.gesamt}</th>
+
+          <th>{$ship.lost}</th>
+        </tr>
+  {/foreach}
+{/if}
+      </table>
+      <br>
+      <br>
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Informationen</td>
+        </tr>
+	{if $raid != -1}
+        <tr><th colspan=2>Dieser Planet wurde gepl&uuml;ndert</th></tr>
+       <tr><th>Eisen</th><th>{$raid.fe}</th></tr>
+       <tr><th>Lutinum</th><th>{$raid.lut}</th></tr>
+       <tr><th>Wasser</th><th>{$raid.h2o}</th></tr>
+       <tr><th>Wasserstoff</th><th>{$raid.h2}</th></tr>
+       {/if}
+        <tr>
+          <th>Durchmesser</th>
+
+          <th>{$to.diameter} km</th>
+        </tr>
+
+        <tr>
+          <th>Temperatur</th>
+
+          <th>ca. {$to.templo}&deg; C bis {$to.temphi}&deg;</th>
+        </tr>
+{if $spy_report == 1}
+	<tr>
+	  <td colspan=2 class="c">Ein Spionagebericht wurde erstellt</td>
+	</tr>
+{if $nobs == 1}
+<tr><th colspan="2">Keine Gebaude/Forschungen entdeckt</th></tr>
+{else}
+ {foreach from=$spy_buildings item=bu}
+	<tr><th>{$bu.name}</th><th> Stufe {$bu.level}</th></tr>
+{/foreach}
+ {foreach from=$spy_sci item=sci}
+	<tr><th>{$sci.name}</th><th> Stufe {$sci.level}</th></tr>
+{/foreach}
+{/if}
+	  <tr><th colspan=2>Rohstoffe im Lager:</th></tr>
+	  <tr><th>Eisen</th>      <th>{$to_res.fe}</th></tr>
+	  <tr><th>Luthrium</th>   <th>{$to_res.lut}</th></tr>
+	  <tr><th>Wasser</th>     <th>{$to_res.h2}</th></tr>
+	  <tr><th>Wasserstoff</th><th>{$to_res.h2o}</th></tr>
+	
+{else}
+        <tr>
+          <td colspan="2" class="f">Ein Spionagebericht wurde nicht
+          erstellt</td>
+        </tr>
+{/if}
+      </table>
+    </center>
+  </body>
+</html>
+

@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+{include file="res_bar.thtml"}
+<br>
+       
+
+      <table width="519">
+        <tr>
+          <td colspan="5" class="c">Ihre Flotten</td>
+        </tr>
+
+        <tr>
+          <th>Typ</th>
+
+          <th>Start</th>
+
+          <th>Absendezeit</th>
+
+          <th>Ziel</th>
+
+          <th>Ankunftszeit</th>
+        </tr>
+{foreach from=$transferlist item=trans}
+<tr>
+  <th>{$trans.str_typ}</th>
+  <th>{$trans.str_from}</th>
+  <th>{$trans.str_tstart}</th>
+  <th>{$trans.str_to}</th>
+  <th>{$trans.str_tthere}</th>
+</tr>
+{/foreach} 
+      </table>
+      <form action="flotten.php5" method="post">
+      <input type="hidden" name="x" value="1">
+{if $pre}
+
+<input type="hidden" name="ft1" value="{$pre.ft1}">
+<input type="hidden" name="ft2" value="{$pre.ft2}">
+<input type="hidden" name="ft3" value="{$pre.ft3}">
+<input type="hidden" name="s" value="{$pre.s}">
+{/if}
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Neuer Auftrag: Raumschiffe
+            ausw&auml;hlen</td>
+          </tr>
+{if $err == 1}<tr><th colspan="2"><font color="red">Keine oder negative Anzahl an Schiffen gew&auml;hlt oder nicht genug Schiffe vorhanden.</font></th></tr>{/if}
+{foreach from=$orbitlist item=ship}
+          <tr>
+            <th><a href="infos.php5?s={$ship.id}">
+            {$ship.name}</a> ({$ship.count} Vorhanden)</th>
+
+            <th><input tabindex="3" type="text" name="c{$ship.id}" size="7"
+            maxlength="7" value="0"></th>
+          </tr>
+{/foreach}
+   
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Weiter"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

@@ -1,0 +1,19 @@
+.{font-family:Helvetica,Arial,Verdana,Sans-Serif;font-size:10pt}
+body{color:#dddddd;margin-top:0px; margin-left:1px;background-color:#000000;background-attachment:fixed;background-image:url(gw_bg.jpg);
+		scrollbar-base-color:#000000; scrollbar-3dlight-color:#303030; scrollbar-arrow-color:#ffffff;
+		scrollbar-darkshadow-color:#000000;  scrollbar-face-color:#505050; scrollbar-highlight-color:#ffffff;
+		scrollbar-shadow-color:#ffffff; scrollbar-track-color:#505050;}
+table{border:"1px solid #31315D"}
+th{text-align:center;} 
+td.b{font-weight:bold;background-color:#585858}
+td.c{font-weight:bold;text-align:center;background-color:#31315D}
+td.f{color:#000000;font-weight:bold;text-align:center}
+td.l{border: 1px solid #31315D;}
+td.k{text-align:center;font-weight:bold}
+a{COLOR: #dddddd;text-decoration:none;font-weight:bold}
+a.s{color:#009900}
+a.t{color:#990000}
+a:hover{COLOR:#0000bb}
+.a {font-family:Helvetica,Arial Black,Arial,sans-serif;font-size:20px;font-style:normal;line-height:normal;font-variant:normal;color:#dddddd;filter:DropShadow(OffX=4,OffY=4,color:#303030)}
+.g {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;font-style:normal;line-height:normal;font-weight:bold;font-variant:normal;color:#dddddd;text-decoration:none;filter:DropShadow(OffX=4,OffY=4,color:#303030)}
+:hover {color:#0000bb}

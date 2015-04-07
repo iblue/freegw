@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+{include file=res_bar.thtml}
+     <br>
+       
+
+      <table width="519">
+        <tr>
+          <td class="c">Nachrichten <a href=
+          "nachrichten.php5?to"><img src="n/m.gif" border="0"
+          alt="Nachricht schreiben"></a></td>
+        </tr>
+
+        <tr>
+          <td class="l"><a href=
+          "nachrichten.php5?o=newmsgs"><img src="n/s1.gif"
+          border="0"> Neue Nachrichten/Ereignisse</a></td>
+        </tr>
+
+        <tr>
+          <td class="l"><a href=
+          "nachrichten.php5?o=events"><img src="n/s1.gif"
+          border="0"> Ereignisse</a></td>
+        </tr>
+
+        <tr>
+          <td class="l"><a href=
+          "nachrichten.php5?o=in"><img src="n/s1.gif"
+          border="0"> Posteingang</a></td>
+        </tr>
+
+        <tr>
+          <td class="l"><a href=
+          "nachrichten.php5?o=out"><img src="n/s1.gif"
+          border="0"> Postausgang</a></td>
+        </tr>
+      </table>
+      <br>
+
+      <form action="nachrichten.php5" method="POST">
+        <input type="hidden" name="u" value="4Umh-m6-oV"> 
+
+        <table width="519">
+          <tr>
+            <td class="c">Alle Nachrichten per Email
+            verschicken (deaktiviert)</td>
+          </tr>
+
+          <tr>
+            <th><input type="submit" value="Verschicken (deaktiviert)"></th>
+          </tr>
+        </table>
+        <br>
+        Achtung: Wir speichern Nachrichten nur f&uuml;r 2 Wochen,
+        danach werden diese gel&ouml;scht. Bitte l&ouml;schen Sie
+        nicht mehr ben&ouml;tigte Nachrichten.
+      </form>
+    </center>
+  </body>
+</html>
+

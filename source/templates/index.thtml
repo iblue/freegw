@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <title>{$CONF_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+{literal}
+<style type="text/css">
+td{vertical-align:top;}
+</style>
+{/literal} 
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <form action="{$CONFIG_internal_serverpath}/login.php5" method="POST">
+        <input type="hidden" name="i" value="y"> 
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">{$CONFIG_game_name} Login</td>
+          </tr>
+
+          <tr>
+            <td class="l">Loginname</td>
+
+            <td class="l"><input type="text" name="name" value=""
+            size="15" maxlength="15"></td>
+          </tr>
+
+          <tr>
+            <td class="l">Passwort</td>
+
+            <td class="l"><input type="password" name="pw" size=
+            "15" maxlength="40"></td>
+          </tr>
+
+
+          <tr>
+            <td class="c" colspan="2"><input type="submit" value=
+            "Login"></td>
+          </tr>
+
+          <tr>
+            <th colspan="2"><a href=
+            "{$CONFIG_internal_serverpath}/anmeldung.php5">Anmeldung
+            Beta-Test</a></th>
+          </tr>
+{*      
+          <tr>
+            <th colspan="2"><a href="{$CONFIG_internal_serverpath}/status.php5" target=
+            "_new">Server Status</a></th>
+          </tr>
+
+          <tr>
+            <th colspan="2"><a href="{$CONFIG_internal_serverpath}/impressum.html" target=
+            "_new">Impressum</a></th>
+          </tr>
+*}
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

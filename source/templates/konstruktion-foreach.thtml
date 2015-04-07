@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+
+            {include file="res_bar.thtml"} 
+
+            <table width="519">
+              <tr>
+                <td class="c" colspan="2">Geb&auml;ude</td>
+              </tr>
+{foreach from=$buildlist item=building}
+              <tr>
+                <td class="l"><a href=
+                "infos.php5?b={$building.id}">{$building.name}</a>
+                 {if $building.level > 0}(Stufe {$building.level}){/if}<br>
+                 {$building.desc}<br>
+                 Ben&ouml;tigt: {$building.need_res} Dauer:
+                <b>{$building.need_time}</b></td>
+
+                <td class="k" width="81">{if $building.onbuild!=1 && $somethingonbuild==-1}
+		<a href="konstruktion.php5?B={$building.id}">
+		<font color="{$building.color}">{/if}
+{if $building.level>0 && $building.onbuild!=1 && $somethingonbuild==-1}
+		Ausbau auf<br> Stufe {$building.buildlevel}
+{elseif $building.onbuild==1}
+		<div id="bx" class="z">{$building.resttime_formatted}</div>
+		{literal}
+		<script type="text/javascript">
+		v=new Date();
+		var bx=document.getElementById('bx');
+		function t()
+		{
+		  n=new Date();
+		  s={/literal}{$building.resttime}{literal}-Math.round((n.getTime()-v.getTime())/1000.);
+		  m=0;
+		  h=0;
+		  if(s<0)
+		  {
+		    bx.innerHTML="Abgeschlossen<br><a href='konstruktion.php5'>weiter</a>"
+		  }
+		  else
+		  {
+		    if(s>59)
+		    {
+		      m=Math.floor(s/60);
+		      s=s-m*60;
+		    }
+		    if(m>59)
+		    {
+		      h=Math.floor(m/60);
+		      m=m-h*60;
+		    }
+		    if(s<10)
+		    {
+		      s="0"+s
+		    }
+		    if(m<10)
+		    {
+		      m="0"+m
+		    }
+		    bx.innerHTML=h+":"+m+":"+s+"<br><a href=konstruktion.php5?s={/literal}{$building.id}{literal}>Abbrechen</a>";
+		  }
+		  window.setTimeout("t();",999)
+		 }
+		 window.onload=t;
+		</script>
+		{/literal}
+{elseif $somethingonbuild==1}
+ -
+{elseif $somethingonbuild==-1}
+               Bauen
+{/if}          
+              {if $building.onbuild!=1 && $somethingonbuild==-1}</font></a>{/if}</td>
+              </tr>
+	      {if $cantbuild == $building.id} 
+	      <tr><td class=f colspan=2>Nicht gen&uuml;gend
+	      Rohstoffe</td></tr>
+	      {/if}
+{/foreach} 
+            </table>
+
+    </center>
+  </body>
+</html>
+

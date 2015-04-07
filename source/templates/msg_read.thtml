@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+     {include file=res_bar.thtml}
+     <br>
+       <a href="nachrichten.php5">Zur&uuml;ck</a><br>
+      <br>
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Nachricht:</td>
+        </tr>
+
+        <tr>
+          <th>Datum</th>
+
+          <th>{$msg.str_date}</th>
+        </tr>
+
+        <tr>
+          <th>Absender</th>
+
+          <th>{$msg.toplanet.gal}:{$msg.toplanet.sys}:{$msg.toplanet.plan} ({$msg.str_fromuser})</th>
+        </tr>
+
+        <tr>
+          <th>Planet</th>
+
+          <th>{$msg.fromplanet.gal}:{$msg.fromplanet.sys}:{$msg.fromplanet.plan}</th>
+        </tr>
+
+        <tr>
+          <th>Betreff</th>
+
+          <th>{if $msg.subject == ""} - kein Betreff - {else}{$msg.subject}{/if}</th>
+        </tr>
+
+        <tr>
+          <th>Nachricht</th>
+
+          <th>{$msg.text}</th>
+        </tr>
+
+        <tr>
+          <th colspan="2">
+           <a href="nachrichten.php5?to={$msg.fromplanet.gal}x{$msg.fromplanet.sys}x{$msg.fromplanet.plan}">Antworten</a>&nbsp;&nbsp;
+           {if $userid == $msg.touid}<a href="nachrichten.php5?del={$msg.id}">L&ouml;schen</a>&nbsp;&nbsp;{/if}
+           {* <a href="meldenachricht.php?id={$msg.id}">Nachricht melden</a> *}
+	 </th>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

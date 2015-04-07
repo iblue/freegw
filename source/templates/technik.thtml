@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <title>{$CONFIG_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+     {include file=res_bar.thtml}
+      <br>
+       
+
+      <table width="519">
+        <tr>
+          <td class="c">Konstruktion</td>
+          <td class="c">Ben&ouml;tigt</td>
+        </tr>
+{* BUGBUG: in Smarty, using PHP *}
+{* {foreach from=$techlist item=$tech}
+     
+        <tr>
+          <td class="l">
+          <a href="infos.php?b={$tech.id}">{$tech.name}</a></td>
+
+          <td class="l">
+  
+  {foreach from=$techlist.needs item=$need}
+    {if $need.met==1}
+      <font color="#00ff00">
+    {else}
+      <font color="#ff0000">
+    {/if} 
+    {$need.name}
+      {if $need.level >1}
+      (Stufe {$need.level})
+      {/if}</font><br>
+  {/foreach}
+          </td>
+        </tr>
+{/foreach}
+*}
+
+
+{php}
+$techlist = $this->_tpl_vars['techlist'];
+//print_r($techlist);
+foreach($this->_tpl_vars['techlist'] as $key => $tech)
+{
+
+  //print_r($tech);
+  echo "<tr>\n";
+  echo "<td class='l'>\n";
+  echo "<a href='infos.php?b=".$tech['id']."'>".$tech['name']."</a></td>";
+  echo "<td class='l'>\n";
+  if(count($tech['needs']) >= 1)
+  {
+    foreach($tech['needs'] as $key2 => $need)
+    {
+      if ($need['met']==1)
+        echo "<font color='#00ff00'>";
+      else
+        echo "<font color='#ff0000'>";
+      echo $need['name'];
+      if ($need['level'] >1)
+        echo "(Stufe ".$need['level'].")";
+      echo "</font><br>";
+    }
+  }
+    echo "</td>\n</tr>\n";
+ 
+
+} 
+ 
+{/php}
+
+        <tr>
+          <td class="c">Forschung</td>
+          <td class="c">Ben&ouml;tigt</td>
+        </tr>
+{* BUGBUG: Same sh... as above *}
+{*
+{foreach from=$techlist_sci item=tech}
+     
+        <tr>
+          <td class="l">
+          <a href="infos.php?f={$tech.id}">{$tech.name}</a></td>
+
+          <td class="l">
+  
+  {foreach from=$techlist.needs item=need}
+    {if $need.met==1}
+      <font color="#00ff00">
+    {else}
+      <font color="#ff0000">
+    {/if} 
+    {$need.name}
+      {if $need.level >1}
+      (Stufe {$need.level})
+      {/if}</font><br>
+  {/foreach}
+          </td>
+        </tr>
+{/foreach}
+*}
+
+{php}
+$techlist_sci = $this->_tpl_vars['techlist_sci'];
+//print_r($techlist);
+foreach($this->_tpl_vars['techlist_sci'] as $key => $tech)
+{
+
+  //print_r($tech);
+  echo "<tr>\n";
+  echo "<td class='l'>\n";
+  echo "<a href='infos.php?b=".$tech['id']."'>".$tech['name']."</a></td>";
+  echo "<td class='l'>\n";
+  if(count($tech['needs']) >= 1)
+  {
+    foreach($tech['needs'] as $key2 => $need)
+    {
+      if ($need['met']==1)
+        echo "<font color='#00ff00'>";
+      else
+        echo "<font color='#ff0000'>";
+      echo $need['name'];
+      if ($need['level'] >1)
+        echo "(Stufe ".$need['level'].")";
+      echo "</font><br>";
+    }
+  }
+    echo "</td>\n</tr>\n";
+ 
+
+} 
+ 
+{/php}
+        <tr>
+          <td class="c">Schiffe</td>
+          <td class="c">Ben&ouml;tigt</td>
+        </tr>
+{php}
+$techlist_ships = $this->_tpl_vars['techlist_ships'];
+//print_r($techlist);
+foreach($this->_tpl_vars['techlist_ships'] as $key => $tech)
+{
+
+  //print_r($tech);
+  echo "<tr>\n";
+  echo "<td class='l'>\n";
+  echo "<a href='infos.php?b=".$tech['id']."'>".$tech['name']."</a></td>";
+  echo "<td class='l'>\n";
+  if(count($tech['needs']) >= 1)
+  {
+    foreach($tech['needs'] as $key2 => $need)
+    {
+      if ($need['met']==1)
+        echo "<font color='#00ff00'>";
+      else
+        echo "<font color='#ff0000'>";
+      echo $need['name'];
+      if ($need['level'] >1)
+        echo "(Stufe ".$need['level'].")";
+      echo "</font><br>";
+    }
+  }
+    echo "</td>\n</tr>\n";
+ 
+
+} 
+ 
+{/php}
+</table>
+    </center>
+  </body>
+</html>
+

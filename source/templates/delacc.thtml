@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+    {include file="res_bar.thtml"}
+    <br>
+       
+
+      <form action="accountloeschen.php5" method="post" target=
+      "_top">
+        <input type="hidden" name="del" value="y">
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Account l&ouml;schen</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Achtung: Gel&ouml;schte Accounts koennen
+             nicht wiederhergestellt werden. Bitte bestaetigen sie
+             mit ihrem Login-Passwort:</th>
+          </tr>
+
+          <tr>
+            <th>Passwort</th>
+
+            <th><input type="password" name="pw" size="24"></th>
+          </tr>
+
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Best&auml;tigen"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

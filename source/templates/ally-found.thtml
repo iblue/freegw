@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+      <br>
+       
+
+      <form action="allianzen.php5" method="POST">
+      <input type="hidden" name="a" value="f">
+      <input type="hidden" name="b" value="1">
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Eigene Allianz
+            gr&uuml;nden</td>
+          </tr>
+
+          <tr>
+            <th>Allianz-Tag</th>
+
+            <th>[ <input type="text" name="tag" size="10" maxlength=
+            "10" value=""> ]</th>
+          </tr>
+
+          <tr>
+            <th>Allianz-Name</th>
+
+            <th><input type="text" name="name" size="20" maxlength=
+            "128" value=""></th>
+          </tr>
+{*
+          <tr>
+            <th>Geheime Allianz (Tag nicht sichtbar)</th>
+
+            <th><input type="checkbox" name="geheim"></th>
+          </tr>
+*}
+          <tr>
+            <th colspan="2"><input type="submit" value=
+            "Absenden"></th>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

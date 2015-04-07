@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+     <br>
+       
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Allianz "{$ally.name}" [{$ally.tag}]:</td>
+        </tr>
+
+        <tr>
+          <th colspan="2">-<br>-<br>-<br>-Allianzlogos deaktiviert-<br>-<br>-<br>-</th>
+        </tr>
+
+        <tr>
+          <th>Tag</th>
+
+          <th>[{$ally.tag}]</th>
+        </tr>
+
+        <tr>
+          <th>Name</th>
+
+          <th>{$ally.name}</th>
+        </tr>
+
+        <tr>
+          <th>Mitglieder</th>
+
+          <th>{$ally.memberc} {* (<a href=
+          "allianzen.php?a=list">Liste
+          anzeigen</a>) *}</th>
+        </tr>
+        {if $new_app == 1}
+        <tr><th colspan=2><font color="#CCFFCC"><a href="allianzen.php5?a=ar">Neue Bewerbungen!</a></th></tr>
+        {/if}
+
+        <tr>
+          <th>Punkte</th>
+
+          <th>{$ally.score}</th>
+        </tr>
+       {if $ally.member == 1}
+        <tr>
+          <th>Ihr Status</th>
+
+          <th>{$ally.status} {if $ally.admin == 1}(<a href="allianzen.php5?a=v">Allianz verwalten</a>){/if}</th>
+        </tr>
+       {/if}
+        <tr>
+          <th>Homepage</th>
+
+          <th><a href="{$ally.url}" target="_new">{$ally.url}</a></th>
+        </tr>
+
+        <tr>
+          <th colspan="2"><br>
+           {$ally.desc|nl2br}
+          </th>
+        </tr>
+        {if $ally.canjoin == 1}
+        <tr><th>Beitreten</th><th><a href="allianzen.php5?a=j&id={$ally.id}">Bewerben</a></th></tr>
+        {/if}
+      </table>
+      <br>
+{if $ally.member == 1}
+      <table width="519">
+        <tr>
+          <td class="c">Nachrichten:</td>
+        </tr>
+
+  {foreach from=$ally_msgs item=msg}
+        <tr>
+          <th>
+            {$msg.str_date} - {$msg.str_from}<br>
+            {$msg.subject}
+            <hr>
+            {$msg.text}
+          </th>
+        </tr>
+  {/foreach}
+
+  {if $ally.msg_write == 1 || $ally.admin == 1}
+      <tr>
+        <td class="c"><a href="ally_msg.php5">Nachricht schreiben</a></td>
+      </tr>
+  {/if}
+      <form action="allianzen.php5" method="POST">
+      <input type="hidden" name="a" value="l">
+
+        <table width="519">
+          <tr>
+            <td class="c">Aus dieser Allianz austreten</td>
+          </tr>
+
+          <tr>
+            <th><input type="submit" value="weiter"></th>
+          </tr>
+        </table>
+      </form>
+
+{/if}
+    </center>
+  </body>
+</html>
+

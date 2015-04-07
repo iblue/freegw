@@ -1,0 +1,184 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+
+      <table border="0" cellspacing="0" cellpadding="0" width="400"
+      height="81">
+        <tr>
+          <td width="116" height="81" background="n/h.gif">
+            <table width="100%" border="0" cellspacing="0"
+            cellpadding="0">
+              <tr>
+                <td height="5"><img src="n/b.gif" width="1" height=
+                "1"></td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                Eisen:</td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                54.604</td>
+              </tr>
+
+              <tr>
+                <td height="10">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+
+          <td background="n/i.gif" width="100">
+            <table width="100%" border="0" cellspacing="0"
+            cellpadding="0">
+              <tr>
+                <td height="5"><img src="n/b.gif" width="1" height=
+                "1"></td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                Lutinum:</td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                24.728</td>
+              </tr>
+
+              <tr>
+                <td height="10">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+
+          <td background="n/i.gif" width="100">
+            <table width="100%" border="0" cellspacing="0"
+            cellpadding="0">
+              <tr>
+                <td height="5"><img src="n/b.gif" width="1" height=
+                "1"></td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                Wasser:</td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                11.042</td>
+              </tr>
+
+              <tr>
+                <td height="10">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="125" height="81" background="n/j.gif">
+            <table width="100%" border="0" cellspacing="0"
+            cellpadding="0">
+              <tr>
+                <td height="5"><img src="n/b.gif" width="1" height=
+                "1"></td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                Wasserstoff:</td>
+              </tr>
+
+              <tr>
+                <td height="10" align="center" class="g">
+                28.666</td>
+              </tr>
+
+              <tr>
+                <td height="10">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <iframe id='aa860450' name='aa860450' src=
+      'http://ads.gameforgeads.de/adframe.php?n=aa860450&amp;what=zone:99'
+       framespacing='0' frameborder='no' scrolling='no' width='468'
+      height='60'></iframe><br>
+      <font color="#FF0000">Galaxywars ist kostenlos dank
+      Werbung</font><br>
+       
+
+      <form action="flotte.php" method="post">
+        <input type="hidden" name="u" value="ayJecejh6b">
+
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Flotte</td>
+          </tr>
+
+          <tr>
+            <th>Auftrag</th>
+
+            <th>Planet 10:23:2 angreifen</th>
+          </tr>
+
+          <tr>
+            <th>Status</th>
+
+            <th>
+              <div id="bx">
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Wasserstoffvorrat</th>
+
+            <th>
+              <div id="ba">
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Ankunft</th>
+
+            <th>Mon, 9.8.2004 - 12:54:13</th>
+          </tr>
+
+          <tr>
+            <th>R&uuml;ckkehr</th>
+
+            <th>Mon, 9.8.2004 - 12:55:58</th>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="c">Schiffe</td>
+          </tr>
+
+          <tr>
+            <th>Spionagesonde</th>
+
+            <th>3</th>
+          </tr>
+        </table>
+<script type="text/javascript">
+v=new Date();s=0;g=0;p=105;w=1;x=0;function t(){n=new Date();r=g+Math.round((n.getTime()-v.getTime())/1000.);if(r>2*p+x){document.getElementById("bx").innerHTML="Seite Aktualisieren / Wartet auf neue Auftr&auml;ge"}else{if (r>p+x){s=Math.floor(2*p+x-r);ab="R&uuml;ckkehr zum Planeten 10:23:3";}else{if (r>p){s=Math.floor(p+x-r);ab="Verteidige Planet 10:23:2";}else{s=Math.floor(p-r);ab="Fliege zum Planeten 10:23:2";}}m=0;h=0;if(s>59){m=Math.floor(s/60);s=s-m*60}if(m>59){h=Math.floor(m/60);m=m-h*60}if(s<10){s="0"+s}if(m<10){m="0"+m}document.getElementById("bx").innerHTML=ab+" - "+h+":"+m+":"+s;q=Math.round(w*(1-r/2/p));vz="";vz="en";if(q==1){vz=""}document.getElementById("ba").innerHTML=q+" Einheit"+vz;}window.setTimeout("t();",1000);}window.onload=t;
+</script>
+      </form>
+    </center>
+  </body>
+</html>
+

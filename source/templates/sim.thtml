@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <form action="sim.php5" method="post">
+      <input type="hidden" name="u" value="y">
+        <table border="0" width="519">
+          <tr>
+            <td class="c" colspan="3">Raumschiffe</td>
+          </tr>
+
+          <tr>
+            <th>Name</th>
+
+            <th>Angreifer</th>
+
+            <th>Verteidiger</th>
+          </tr>
+{foreach from=$shiplist item=ship}
+          <tr>
+            <th>{$ship.name}</th>
+
+            <th><input type="text" name="a{$ship.id}" value="0" size="8"
+            maxlength="6"></th>
+
+            <th><input type="text" name="v{$ship.id}" value="0" size="8"
+            maxlength="6"></th>
+          </tr>
+{/foreach}
+{*
+          <tr>
+            <td class="c" colspan="3">Verteidigungst&uuml;rme</td>
+          </tr>
+{foreach from=$deflist item=def}
+          <tr>
+            <th>{$def.name}</th>
+
+            <th>-</th>
+
+            <th><input type="text" name="t{$def.id}" value="0" size="8"
+            maxlength="6"></th>
+          </tr>
+{/foreach}
+*}
+{*
+          <tr>
+            <td class="c" colspan="3">Forschungen</td>
+          </tr>
+{foreach from=$scilist item=sci}
+          <tr>
+            <th>Stufe {$sci.name}</th>
+
+            <th><input type="text" name="a{$sci.id}" value="0" maxlength=
+            "4" size="8"></th>
+
+            <th><input type="text" name="v{$sci.id}" value="0" maxlength=
+            "4" size="8"></th>
+          </tr>
+{/foreach}
+*}
+
+          <tr>
+            <th colspan="3"><input type="submit" value=
+            "Berechnen"></th>
+          </tr>
+        </table>
+      </form>
+
+      <table border="0" width="519">
+        <tr>
+          <td class="c" colspan="2">Ergebnis:</td>
+        </tr>
+
+        <tr>
+          <th>Angreifer</th>
+
+          <th>Angriffswert: {$erg.ag_a}<br>
+          Verteidigungswert: {$erg.vt_a}</th>
+        </tr>
+
+        <tr>
+          <th>Verteidiger</th>
+
+          <th>Angriffswert: {$erg.ag_v}<br>
+          Verteidigungswert: {$erg.vt_v}</th>
+        </tr>
+
+        <tr>
+          <th>Chance auf Sieg Angreifer</th>
+
+          <th>{$erg.c_ag}%</th>
+        </tr>
+
+        <tr>
+          <th>Chance auf Sieg Verteidiger</th>
+
+          <th>{$erg.c_vt}%</th>
+        </tr>
+
+        <tr>
+          <th>Chance einen Spionagebericht zu erstellen</th>
+
+          <th>{$erg.c_spio}%</th>
+        </tr>
+
+        <tr>
+          <th>Chance den Planeten zu &uuml;bernehmen
+          (Invasion)</th>
+
+          <th>{$erg.c_inva}%</th>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+

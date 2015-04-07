@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+     {include file=res_bar.thtml}
+    <br>
+       <a href="nachrichten.php5">Zur&uuml;ck</a><br>
+      <br>
+
+      <form action="nachrichten.php5" method="post">
+        <table width="519">
+          <tr>
+            <td class="c" colspan="4">Ordner "{$foldername}"</td>
+          </tr>
+
+          <tr>
+            <th>
+            </th>
+
+            <th>Datum</th>
+
+            <th>Planet</th>
+
+            <th>Nachricht</th>
+          </tr>
+{foreach from=$msglist item=msg}
+          <tr>
+            <th>
+	    <input type="checkbox" name="{$msg.id}" value="1"></th>
+
+            <th>{$msg.str_date}</th>
+
+            <th>{$msg.toplanet.gal}:{$msg.toplanet.sys}:{$msg.toplanet.plan}</th>
+
+            <th><a href="nachrichten.php?readid={$msg.id}">(Nachricht
+            von {$msg.fromplanet.gal}:{$msg.fromplanet.sys}:{$msg.fromplanet.plan} ({$msg.str_fromuser} - {$msg.subject}</a></th>
+          </tr>
+{/foreach}
+        </table>
+        <br>
+
+        <table border="0">
+          <tr>
+            <td><select size="1" name="q">
+          {*    <option value="1">
+                Markierte Nachrichten
+              </option>
+
+              <option value="2">
+                Nicht markierte Nachrichten
+              </option>  *}
+
+              <option value="3">
+                Alle Nachrichten
+              </option>
+            </select></td>
+
+            <td><select name="a">
+              <option value="d">
+                L&ouml;schen
+              </option>
+            </select></td>
+
+            <td><input type="submit" value="OK"></td>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
+

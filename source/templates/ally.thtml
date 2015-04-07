@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title>{$CONF_game_name}</title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+       {include file="res_bar.thtml"}
+      <br>
+       
+
+      <table width="519">
+        <tr>
+          <td class="c" colspan="2">Allianzen</td>
+        </tr>
+
+        <tr>
+          <th><a href="allianzen.php5?a=f">
+          Allianz gr&uuml;nden</a></th>
+
+          <th><a href="allianzen.php5?a=s">Allianzen
+          Suchen (deaktiviert)</a></th>
+        </tr>
+      </table>
+      <br>
+    </center>
+  </body>
+</html>
+

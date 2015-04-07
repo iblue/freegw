@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+      <br>
+       <a href="allianzen.php5?id={$aid}">Zur&uuml;ck</a><br>
+      <br>
+{if $ay == 1}
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Bewerbung</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Bewerbung wurde angenommen</th>
+          </tr>
+        </table>
+{/if}
+
+{if $an == 1}
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Bewerbung</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Bewerbung wurde abgelehnt</th>
+          </tr>
+        </table>
+{/if}
+{foreach from=$applist item=app}
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Von {$app.name}:</td>
+          </tr>
+
+          <tr>
+            <th width="50%">Nachricht</th>
+
+            <th>{$app.text|nl2br}</th>
+          </tr>
+        <tr>
+          <th><a href="allianzen.php5?a=ay&uid={$app.userid}"><font color="#AAFFAA">Annehmen</font></a></th> 
+          <th><a href="allianzen.php5?a=an&uid={$app.userid}"><font color="#FFAAAA">Ablehnen</font></a></th> 
+        </tr>
+        </table>
+        
+{/foreach}
+
+      </form>
+    </center>
+  </body>
+</html>
+

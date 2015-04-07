@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="n/gw.css">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=ISO-8859-1">
+  </head>
+
+  <body text="#FFFFFF" onload="y()" bgcolor="black">
+    <center>
+      <br>
+      {include file="res_bar.thtml"}
+      <br>
+       
+
+      <form action="flotten.php5" method="post" name="aa">
+      <input type="hidden" name="x" value="2">
+{foreach from=$ships item=ship}      
+      <input type="hidden" name="c{$ship.id}" value="{$ship.count}">
+{/foreach}
+        <table width="519">
+          <tr>
+            <td class="c" colspan="2">Flotte verschicken</td>
+          </tr>
+
+          <tr>
+            <th>Ziel</th>
+
+            <th><input size="5" maxlength="3" onkeyup="y()" type=
+            "text" name="ft1" value="{$startcoords.gal}"> :<input size="5"
+            maxlength="3" onkeyup="y()" type="text" name="ft2"
+            value="{$startcoords.sys}"> :<input size="5" maxlength="3" onkeyup=
+            "y()" type="text" name="ft3" value="{$startcoords.plan}"></th>
+          </tr>
+
+          <tr>
+            <th>Geschwindigkeit</th>
+
+            <th><select name="s" size="1" onchange="y()">
+              <option value="10">
+                100%
+              </option>
+
+              <option value="9">
+                90%
+              </option>
+
+              <option value="8">
+                80%
+              </option>
+
+              <option value="7">
+                70%
+              </option>
+
+              <option value="6">
+                60%
+              </option>
+
+              <option value="5">
+                50%
+              </option>
+
+              <option value="4">
+                40%
+              </option>
+
+              <option value="3">
+                30%
+              </option>
+
+              <option value="2">
+                20%
+              </option>
+
+              <option value="1">
+                10%
+              </option>
+            </select></th>
+          </tr>
+
+          <tr>
+            <th>Entfernung</th>
+
+            <th>
+              <div id="w">
+                -
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Dauer (eine Strecke)</th>
+
+            <th>
+              <div id="x">
+                -
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Wasserstoffverbrauch</th>
+
+            <th>
+              <div id="z">
+                -
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Max. Geschwindigkeit</th>
+
+            <th>{$fleet.maxspeed}</th>
+          </tr>
+
+          <tr>
+            <th>Ladekapazit&auml;t</th>
+
+            <th>{$fleet.load} Einheiten</th>
+          </tr>
+
+          <tr>
+            <th colspan="2">{*<input type="submit" name="cha" value=
+            "Zur Auswahl">*}<input type="submit" value="Weiter" name=
+            "dr"></th>
+          </tr>
+        </table>
+{literal}
+<script type="text/javascript">
+function tp(ac){ei=ac+"";au="";
+while(ei.length>3){au="."+ei.substring(ei.length-3,ei.length)+au;ei=ei.substring(0,ei.length-3)}au=ei+au;return au}function y(){a=document.getElementsByName("ft1")[0].value;b=document.getElementsByName("ft2")[0].value;c=document.getElementsByName("ft3")[0].value;p=document.getElementsByName("s")[0].value;m=0;h=0;d="-";en="";
+if(a!={/literal}{$startcoords.gal}{literal}){d=Math.abs((a-{/literal}{$startcoords.gal}{literal})*20000)}
+else if(b!={/literal}{$startcoords.sys}{literal}){d=2700+5*Math.abs((b-{/literal}{$startcoords.sys}{literal})*19)}
+else if(c!={/literal}{$startcoords.plan}{literal})
+{d=1000+Math.abs((c-{/literal}{$startcoords.plan}{literal})*5)}
+if(a<1|a>199|b<1|b>300|c<0|c>199){d="-"}e=Math.round({/literal}{$fleet.h2need}{literal}*d/35000*((p/10)+1)*((p/10)+1))+1;s=Math.round(35000/p*Math.sqrt(d*10/{/literal}{$fleet.maxspeed}{literal}));if(s>59){m=Math.floor(s/60);s=s-m*60}
+if(m>59){h=Math.floor(m/60);m=m-h*60}
+if(s<10){s="0"+s;}
+if(m<10){m="0"+m}u="00FF";
+if(e>{/literal}{$fleet.h2max}{literal}){u="FF00"}
+if(e>1){en="en"}
+if(d=="-"){document.getElementById("w").innerHTML=d;document.getElementById("x").innerHTML=d;document.getElementById("z").innerHTML=d}else{document.getElementById("w").innerHTML=tp(d)+".000 km";document.getElementById("x").innerHTML=tp(h)+":"+m+":"+s;document.getElementById("z").innerHTML="<font color="+u+"00>"+tp(e)+" Einheit"+en+"<\/font>"}}
+</script>
+{/literal}
+      </form>
+      <br>
+      <a href="sim.php5?u=y&a10=6">Zum
+      Simulator</a>
+    </center>
+  </body>
+</html>
+
